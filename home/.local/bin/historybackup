@@ -1,12 +1,13 @@
 #!/bin/sh
 
-[ ! "$HISTFILE" ] && echo "No HISTFILE env var defined" && exit 1
+[ ! "$MYHIST" ] && echo "No MYHIST env var defined" >&2 && exit 1
 
-backup="$(dirname "$HISTFILE")/$(basename "$HISTFILE").bak"
+backup="$(dirname "$MYHIST")/$(basename "$MYHIST").bak"
 last_changed=$(stat -t "%Y%m%d" -qf "%Sc" "$backup")
-today=$(date +%Y%m%d)
 touch "$backup"
-histfile_ln=$(wc -l < "$HISTFILE")
+
+today=$(date +%Y%m%d)
+histfile_ln=$(wc -l < "$MYHIST")
 backup_ln=$(wc -l < "$backup")
 
 warn() {
@@ -19,13 +20,12 @@ fix() {
     echo "Would you like restore history from backup? (y/n)"
     read -r answer
     [ "$answer" = "y" ] &&
-        cat "$HISTFILE" >> "$backup" &&
-        cp "$backup" "$HISTFILE"
+        cat "$MYHIST" >> "$backup" &&
+        cp "$backup" "$MYHIST"
 }
 
-[ "$last_changed" != "$today" ] &&
-    [ "$histfile_ln" -gt "$backup_ln" ] &&
-    cp "$HISTFILE" "$backup" && exit 0
+[ "$last_changed" != "$today" ] && [ "$histfile_ln" -gt "$backup_ln" ] &&
+    cp "$MYHIST" "$backup" && exit 0
 
 [ "$histfile_ln" -lt "$backup_ln" ] &&
     warn && fix

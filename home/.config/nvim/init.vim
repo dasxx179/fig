@@ -212,6 +212,7 @@
     tnoremap <c-\>  <c-\><c-n>
     nnoremap c      "_c
     nnoremap <s-y>  y$
+    inoremap <c-v>  <c-o>p
 
 "--- Functions ---------------------------------------
     nnoremap <silent> <c-w>r      <c-w>t:call ResizeMode()<CR>
