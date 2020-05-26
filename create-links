@@ -1,0 +1,54 @@
+#!/bin/sh
+
+xdg_data_home=${XDG_DATA_HOME:-$HOME/.local/share}
+fig_root=$(dirname "$(realpath "$0")")
+
+fig_swap="$xdg_data_home/fig/$(date +%FT%H:%M)"
+[ ! -d "$fig_swap" ] && mkdir -p "$fig_swap"
+
+fig_home="$fig_root/home"
+[ ! -d "$fig_home" ] && mkdir -p "$fig_home"
+
+[ "$(pwd)" != "$fig_root" ] &&
+    ! cd "$fig_root" &&
+    echo "ERROR: couldn't change path" >&2 &&
+    exit 1
+
+link_dirs=$(find "$fig_home" -mindepth 1 -type f -name ".figlink" -exec dirname {} \; |
+    sort | awk '{ if (NR == 1){ reg="^$" }; if ($0 ~ reg) { next }; print; reg="^"$0"." }')
+
+link_files=$(find "$fig_home" -mindepth 1 -type f)
+
+move_to_swap() {
+    real=$1
+    mv "$real" "$fig_swap/$(echo "$real" | tr "/" ":")" &&
+    echo "moved existing $(basename "$real") to $fig_swap"
+}
+
+create_link() {
+    target=$1
+
+    real=$(echo "$target" | sed "s|$fig_home|$HOME|")
+
+    [ ! -L "$real" ] && [ -d "$real" ] && move_to_swap "$real"
+    [ ! -L "$real" ] && [ -f "$real" ] && move_to_swap "$real"
+
+    ln -sF "$target" "$real"
+    echo "created link for $real"
+}
+
+echo "STARTING"
+
+IFS="
+"
+for dir in $link_dirs; do
+    link_files=$(echo "$link_files" | grep -v "$dir")
+
+    create_link "$dir"
+done
+
+for file in $link_files; do
+    create_link "$file"
+done
+
+echo "DONE"
