@@ -1,2 +1,3 @@
-# fig
-A tool to manage config files and improve your workflow (also a delicious fruit 🍐)
+# About
+
+Fig gives you a simple way to track, backup, and share system configurations.

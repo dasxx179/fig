@@ -9,7 +9,7 @@ export LANG="en_US.UTF-8"
 export SHELL="zsh"
 export OPENER="$EDITOR"
 export VISUAL="$EDITOR"
-export PAGER="bat"
+export PAGER="bat --paging=always"
 export GIT_PAGER="$PAGER"
 export MANPAGER="col -bx | $PAGER --language=man"
 
