@@ -1,0 +1,80 @@
+#### Default Options ##################################
+    alias ls='ls -Hp'
+    alias la='ls -HpA'
+    alias ll='ls -Hpl'
+    alias bc='bc -q'
+
+#### Shortcut #########################################
+    alias vim='nvim'
+    alias vi='nvim'
+    alias v='nvim'
+    alias ww='nvim ~/.local/vimwiki/index.wiki'
+    alias ldk='lazydocker'
+    alias yay='pacapt'
+    alias lg='lazygit'
+    alias cl='clear'
+    alias cls='clear && ls'
+    alias cll="printf '\033\143'"
+    alias hb='hub browse'
+    alias :q='exit'
+    alias k='kubectl'
+    alias l='lfcd'
+    alias j='jump'
+    alias c='jump'
+    alias gh='cd ~'
+    alias loc='tokei -s code'
+
+#### Functions ########################################
+    up() { fc -e "gsed -i -e \"s|\s| $@ |\"" }
+    up2() { fc -e "gsed -i -e \"s|\s| $@ |2\"" }
+
+    ip() { ifconfig | grep "inet 10" | awk '{print $2}' }
+
+    glog() { git log --oneline --no-decorate "-${1:-5}" ${@:2} }
+
+    bak() { cp "$1" "${1}.bak" }
+    unbak() { mv "$1" $(sed "s/.bak$//" <<< "$1") }
+
+    cr() {
+        goto=$(cd ~/repos && fd -d1 |
+            fzf --reverse |
+            xargs echo "$HOME/repos/" | tr -d ' ')
+        [ "$goto" ] && cd "$goto"
+    }
+    br() {
+        prev_dir=$(pwd) && cr && hub browse && cd "$prev_dir"
+    }
+    lr() {
+        for repo in $(cd ~/repos && fd -d1 | fzf --reverse --multi)
+        do
+            lazygit -p "$HOME/repos/$repo"
+        done
+    }
+    wr() {
+        nvim $(cd ~/.local/vimwiki && fd |
+            fzf --reverse |
+            xargs echo "$HOME/.local/vimwiki/" | tr -d ' ')
+    }
+
+###################### Save lf Dir ##################
+    lfcd () {
+        tmp="$(mktemp)"
+        ~/repos/lf/lf-bufio -last-dir-path="$tmp" "$@"
+        # lf -last-dir-path="$tmp" "$@"
+        if [ -f "$tmp" ]; then
+            dir="$(cat "$tmp")"
+            rm -f "$tmp"
+            if [ -d "$dir" ]; then
+                if [ "$dir" != "$(pwd)" ]; then
+                    cd "$dir"
+                fi
+            fi
+        fi
+    }
+
+#### Configs ##########################################
+    alias .zsh='nvim $ZDOTDIR/.zshrc'
+    alias .alias='nvim $ZDOTDIR/alias'
+    alias .env='nvim $HOME/.zshenv'
+    alias .nvim='nvim $HOME/.config/nvim/init.vim'
+    alias .hist='nvim $HISTFILE'

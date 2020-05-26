@@ -1,0 +1,54 @@
+{
+	"name": "Vimium C",
+	"@time": "5/22/2020, 5:22:08 PM",
+	"time": 1590186128242,
+	"environment": {
+		"extension": "1.83.2",
+		"platform": "mac",
+		"chrome": 81
+	},
+	"exclusionRules": [
+		{
+			"pattern": ":https://leetcode.com/",
+			"passKeys": ""
+		},
+		{
+			"pattern": ":https://www.flowdock.com/",
+			"passKeys": "? "
+		},
+		{
+			"pattern": ":https://play.rust-lang.org/",
+			"passKeys": ""
+		},
+		{
+			"pattern": ":https://mail.google.com/",
+			"passKeys": "# / ? a c e j k o s x "
+		}
+	],
+	"keyMappings": [
+		"map R reload hard",
+		"map ' Marks.activate",
+		"map <c-g> Marks.activate",
+		"map <c-o> visitPreviousTab",
+		"map <c-f> LinkHints.activateModeWithQueue",
+		""
+	],
+	"linkHintCharacters": "asdfjklrtyugh",
+	"searchEngines": [
+		"r: https://doc.rust-lang.org/std/?search=%s Rust",
+		"g: https://github.com/search?q=%s Github",
+	],
+	"showAdvancedCommands": true,
+	"showAdvancedOptions": true,
+	"userDefinedCss": [
+		".D > .LH {",
+		"  background: white;",
+		"  border-color: black;",
+		"}",
+		".D > .LH > .MC {",
+		"  color: white;",
+		"}",
+		""
+	],
+	"vimSync": false
+}

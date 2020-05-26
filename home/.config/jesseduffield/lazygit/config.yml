@@ -1,0 +1,35 @@
+gui:
+  scrollheight: 2
+  scrollpastbottom: true
+  sidePanelWidth: 0.3333
+  theme:
+    lightTheme: false
+    activebordercolor:
+    - red
+    - bold
+    inactivebordercolor:
+    - blue
+    optionstextcolor:
+    - blue
+    selectedLineBgColor:
+    - bold
+  commitlength:
+    show: true
+  mouseEvents: true
+  skipUnstageLineWarning: false
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --24-bit-color=never
+  merging:
+    manualCommit: false
+  skipHookPrefix: WIP
+  autoFetch: true
+update:
+  method: prompt
+  days: 14
+os:
+  opencommand: $EDITOR {{filename}}
+reporting: "off"
+confirmOnQuit: false
+startuppopupversion: 1
