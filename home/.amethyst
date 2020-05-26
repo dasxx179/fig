@@ -1,0 +1,237 @@
+{
+    "layouts": [
+        "tall",
+        "fullscreen",
+        "floating",
+    ],
+    "Valid modifiers are": [
+        "option",
+        "shift",
+        "control",
+        "command"
+    ],
+    "mod1": [
+        "command"
+    ],
+    "mod2": [
+        "command",
+        "shift"
+    ],
+    "screens": 3,
+    "cycle-layout": {
+        "mod": "",
+        "key": ""
+    },
+    "cycle-layout-backward": {
+        "mod": "",
+        "key": ""
+    },
+    "select-tall-layout": {
+        "mod": "mod1",
+        "key": "t"
+    },
+    "select-fullscreen-layout": {
+        "mod": "mod1",
+        "key": "m"
+    },
+    "select-floating-layout": {
+        "mod": "mod1",
+        "key": "f"
+    },
+    "select-wide-layout": {
+        "mod": "",
+        "key": ""
+    },
+    "select-column-layout": {
+        "mod": "",
+        "key": ""
+    },
+    "focus-screen-ccw": {
+        "mod": "mod1",
+        "key": "l"
+    },
+    "focus-screen-cw": {
+        "mod": "mod1",
+        "key": "h"
+    },
+    "focus-screen-1": {
+        "mod": "",
+        "key": ""
+    },
+    "focus-screen-2": {
+        "mod": "",
+        "key": ""
+    },
+    "focus-screen-3": {
+        "mod": "",
+        "key": ""
+    },
+    "focus-screen-4": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-screen-1": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-screen-2": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-screen-3": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-screen-4": {
+        "mod": "",
+        "key": ""
+    },
+    "shrink-main": {
+        "mod": "mod1",
+        "key": ","
+    },
+    "expand-main": {
+        "mod": "mod1",
+        "key": "."
+    },
+    "increase-main": {
+        "mod": "mod1",
+        "key": "i"
+    },
+    "decrease-main": {
+        "mod": "mod1",
+        "key": "d"
+    },
+    "focus-ccw": {
+        "mod": "mod1",
+        "key": "k"
+    },
+    "focus-cw": {
+        "mod": "mod1",
+        "key": "j"
+    },
+    "focus-main": {
+        "mod": "",
+        "key": ""
+    },
+    "swap-screen-ccw": {
+        "mod": "mod2",
+        "key": "l"
+    },
+    "swap-screen-cw": {
+        "mod": "mod2",
+        "key": "h"
+    },
+    "swap-ccw": {
+        "mod": "mod2",
+        "key": "j"
+    },
+    "swap-cw": {
+        "mod": "mod2",
+        "key": "k"
+    },
+    "swap-main": {
+        "mod": "mod1",
+        "key": "enter"
+    },
+    "throw-space-1": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-2": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-3": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-4": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-5": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-6": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-7": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-8": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-9": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-10": {
+        "mod": "",
+        "key": ""
+    },
+    "throw-space-left": {
+        "mod": "mod2",
+        "key": "p"
+    },
+    "throw-space-right": {
+        "mod": "mod2",
+        "key": "n"
+    },
+    "toggle-float": {
+        "mod": "mod2",
+        "key": "space"
+    },
+    "toggle-tiling": {
+        "mod": "",
+        "key": ""
+    },
+    "display-current-layout": {
+        "mod": "",
+        "key": ""
+    },
+    "reevaluate-windows": {
+        "mod": "",
+        "key": ""
+    },
+    "toggle-focus-follows-mouse": {
+        "mod": "",
+        "key": ""
+    },
+    "relaunch-amethyst": {
+        "mod": "mod1",
+        "key": "z"
+    },
+    "floating": [
+        {
+            "id": "io.alacritty",
+            "window-titles": [ "float" ]
+        }
+    ],
+    "floating-is-blacklist": true,
+    "float-small-windows": true,
+    "mouse-follows-focus": true,
+    "focus-follows-mouse": false,
+    "enables-layout-hud": true,
+    "enables-layout-hud-on-space-change": false,
+    "window-margin-size": 5,
+    "window-resize-step": 5,
+    "window-margins": true,
+    "window-minimum-height": 0,
+    "window-minimum-width": 0,
+    "ignore-menu-bar": false,
+    "use-canary-build": false,
+    "new-windows-to-main": false,
+    "follow-space-thrown-windows": true,
+    "send-crash-reports": false,
+    "screen-padding-top": 10,
+    "screen-padding-bottom": 10,
+    "screen-padding-left": 10,
+    "screen-padding-right": 10,
+    "debug-layout-info": false,
+    "restore-layouts-on-launch": true
+}
