@@ -22,7 +22,7 @@ link_files=$(find "$fig_home" -mindepth 1 -type f)
 move_to_swap() {
     real=$1
     mv "$real" "$fig_swap/$(echo "$real" | tr "/" ":")" &&
-    echo "moved existing $(basename "$real") to $fig_swap"
+        echo "moved existing $(basename "$real") to $fig_swap"
 }
 
 create_link() {
@@ -33,7 +33,7 @@ create_link() {
     [ ! -L "$real" ] && [ -d "$real" ] && move_to_swap "$real"
     [ ! -L "$real" ] && [ -f "$real" ] && move_to_swap "$real"
 
-    ln -sF "$target" "$real"
+    ln -sFh "$target" "$real"
     echo "created link for $real"
 }
 
