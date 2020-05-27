@@ -45,18 +45,6 @@ export FZF_ALT_C_COMMAND="$fzf_base_command --type directory --type symlink"
 export FZF_ALT_C_OPTS="--preview-window=right:0:hidden"
 export FZF_CTRL_R_OPTS="--preview-window=right:0:hidden"
 
-#### Rust ########################################
-export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export PATH="$CARGO_HOME/bin:$PATH"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-
-#### Go ##########################################
-export GOPATH="$XDG_DATA_HOME/go"
-export PATH="$GOPATH/bin:$PATH"
-export GOPRIVATE="*.optum.com"
-export GOPROXY="direct"
-export GO111MODULE="on"
 
 #### JS ##########################################
 export PATH="$HOME/node_modules/.bin:$PATH"
