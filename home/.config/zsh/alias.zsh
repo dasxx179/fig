@@ -35,7 +35,7 @@ alias .hist="$EDITOR $MYHIST"
 up() { fc -e "sed -i \"\" -e \"s| | $* |\"" }
 up2() { fc -e "sed -i \"\" -e \"s| | $* |2\"" }
 
-ip() { ifconfig | grep "inet 10" | awk '{print $2}' }
+ip() { ifconfig | grep "inet " | tail -1 | cut -d " " -f 2 }
 
 glog() { git log --oneline --no-decorate "-${1:-5}" ${@:2} }
 
