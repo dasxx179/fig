@@ -1,3 +1,7 @@
+**/.DS_Store
+**/.git
+**/.gitignore
+
 /Applications
 /Desktop
 /Documents
@@ -14,6 +18,4 @@
 /.*
 !/.config
 
-**/.DS_Store
-**/.git
-**/.gitignore
+/temp/OLD

@@ -43,25 +43,58 @@ bak() { cp -r "$1" "$1.bak" }
 unbak() { mv "$1" $(sed "s/.bak$//" <<< "$1") }
 
 #### Fzf #########################################
+# go to one of the lastest dirs
+gl() {
+    goto=$(cat "$DIRSTACKFILE" | fzf --reverse)
+    [ "$goto" ] && cd "$goto"
+}
+
+# go to a repo
 gr() {
     repo="$(cd ~/repos && fd -d1 | fzf --reverse)"
     [ "$repo" ] && cd "$HOME/repos/$repo"
 }
+
+# open a repo in the browser
 or() {
     prev_dir=$(pwd) && gr && hub browse; cd "$prev_dir"
 }
+
+# use lazygit on one or more repos
 lr() {
     for repo in $(cd ~/repos && fd -d1 | fzf --reverse --multi); do
         lazygit -p "$HOME/repos/$repo"
     done
 }
-gw() {
-    wiki=$(cd ~/.local/vimwiki && fd | fzf --reverse)
-    [ "$wiki" ] && $EDITOR "$HOME/.local/vimwiki/$wiki"
+
+# go to a dir in temp
+gt() {
+    dir="$(cd ~/temp && fd -t d | fzf --reverse)"
+    [ "$dir" ] && cd "$HOME/temp/$dir"
 }
-gl() {
-    goto=$(cat "$DIRSTACKFILE" | fzf --reverse)
-    [ "$goto" ] && cd "$goto"
+
+# edit a file in temp
+et() {
+    file="$(cd ~/temp && fd -t f | fzf --reverse)"
+    [ "$file" ] && "$EDITOR" "$HOME/temp/$file"
+}
+
+# go to a dir in save
+gs() {
+    dir="$(cd ~/save && fd -t d | fzf --reverse)"
+    [ "$dir" ] && cd "$HOME/save/$dir"
+}
+
+# edit a file in temp
+es() {
+    file="$(cd ~/save && fd -t f | fzf --reverse)"
+    [ "$file" ] && "$EDITOR" "$HOME/save/$file"
+}
+
+# edit a vimwiki page
+ew() {
+    wiki=$(cd ~/.local/vimwiki && fd | fzf --reverse)
+    [ "$wiki" ] && "$EDITOR" "$HOME/.local/vimwiki/$wiki"
 }
 
 #### Save lf Dir #################################
