@@ -20,6 +20,7 @@ htop
 coreutils
 sc-im
 tree
+tokei
 watch
 lazydocker
 docker-completion

@@ -33,8 +33,12 @@ create_link() {
     [ ! -L "$real" ] && [ -d "$real" ] && move_to_swap "$real"
     [ ! -L "$real" ] && [ -f "$real" ] && move_to_swap "$real"
 
-    ln -sFh "$target" "$real"
-    echo "created link for $real"
+    parent_dir=$(dirname "$real")
+
+    [ -L "$parent_dir" ] && rm "$parent_dir"
+    [ ! -d "$parent_dir" ] && mkdir -p "$parent_dir"
+
+    ln -sFh "$target" "$real" && echo "created link for $real"
 }
 
 echo "STARTING"

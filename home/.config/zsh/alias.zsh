@@ -3,12 +3,12 @@ alias ls="ls -Hp"
 alias bc="bc -q"
 
 #### Shortcut ####################################
-alias vim="nvim"
-alias vi="nvim"
-alias v="nvim"
+alias vim="$EDITOR"
+alias vi="$EDITOR"
+alias v="$EDITOR"
 alias la="ls -HpA"
 alias ll="ls -Hpl"
-alias ww="nvim ~/.local/vimwiki/index.wiki"
+alias ww="$EDITOR ~/.local/vimwiki/index.wiki"
 alias ldk="lazydocker"
 alias yay="pacapt"
 alias lg="lazygit"
@@ -25,24 +25,24 @@ alias loc="tokei -s code"
 alias page="$PAGER"
 
 #### Configs #####################################
-alias .zsh="nvim $ZDOTDIR/.zshrc"
-alias .alias="nvim $ZDOTDIR/alias"
-alias .env="nvim $HOME/.zprofile"
-alias .nvim="nvim $XDG_CONFIG_HOME/nvim/init.vim"
-alias .hist="nvim $MYHIST"
+alias .zsh="$EDITOR $ZDOTDIR/.zshrc"
+alias .alias="$EDITOR $ZDOTDIR/alias.zsh"
+alias .env="$EDITOR $HOME/.zprofile"
+alias .nvim="$EDITOR $XDG_CONFIG_HOME/nvim/init.vim"
+alias .hist="$EDITOR $MYHIST"
 
 #### Functions ###################################
-up() { fc -e "gsed -i -e \"s|\s| $@ |\"" }
-up2() { fc -e "gsed -i -e \"s|\s| $@ |2\"" }
+up() { fc -e "sed -i \"\" -e \"s| | $* |\"" }
+up2() { fc -e "sed -i \"\" -e \"s| | $* |2\"" }
 
-ip() { ifconfig | grep "inet 10" | awk '{print $2}' }
+ip() { ifconfig | grep "inet " | tail -1 | cut -d " " -f 2 }
 
 glog() { git log --oneline --no-decorate "-${1:-5}" ${@:2} }
 
 bak() { cp -r "$1" "$1.bak" }
 unbak() { mv "$1" $(sed "s/.bak$//" <<< "$1") }
 
-#### Fuzzy #######################################
+#### Fzf #########################################
 gr() {
     repo="$(cd ~/repos && fd -d1 | fzf --reverse)"
     [ "$repo" ] && cd "$HOME/repos/$repo"
@@ -57,7 +57,7 @@ lr() {
 }
 gw() {
     wiki=$(cd ~/.local/vimwiki && fd | fzf --reverse)
-    [ "$wiki" ] && nvim "$HOME/.local/vimwiki/$wiki"
+    [ "$wiki" ] && $EDITOR "$HOME/.local/vimwiki/$wiki"
 }
 gl() {
     goto=$(cat "$DIRSTACKFILE" | fzf --reverse)
