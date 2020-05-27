@@ -1,7 +1,7 @@
 #!/bin/sh
 
-apple_path="${HOME}/Library/Application Support/jesseduffield/lazygit"
-desired_path="${HOME}/.config/jesseduffield/lazygit"
+apple_path="${HOME}/Library/Application Support/jesseduffield/lazydocker"
+desired_path="${HOME}/.config/jesseduffield/lazydocker"
 
 temp_dir=$(mktemp -d)
 mkdir -p "$temp_dir/{library,config}"
@@ -13,5 +13,7 @@ mkdir -p "$temp_dir/{library,config}"
 [ ! -L "$desired_path" ] && [ -d "$desired_path" ] &&
     mv "$desired_path/" "$temp_dir/config" &&
     echo "Moved existing lazygit configs in ~/.config to $temp_dir"
+
+mkdir -p "$(dirname "$desired_path")" "$(dirname "$apple_path")"
 
 ln -sFh "$desired_path" "$apple_path"
