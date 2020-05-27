@@ -2,7 +2,11 @@
 
 [ ! "$MYHIST" ] && echo "No MYHIST env var defined" >&2 && exit 1
 
-backup="$(dirname "$MYHIST")/$(basename "$MYHIST").bak"
+parent_dir=$(dirname "$MYHIST")
+[ ! -d "$parent_dir" ] && mkdir -p "$parent_dir"
+[ ! -f "$MYHIST" ] && touch "$MYHIST"
+
+backup="$parent_dir/$(basename "$MYHIST").bak"
 last_changed=$(stat -t "%Y%m%d" -qf "%Sc" "$backup")
 touch "$backup"
 
