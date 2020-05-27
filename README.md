@@ -30,33 +30,13 @@ At this point you may want to consider using the rest of the "extras":
 * extras/alacritty-new-instance.png shows how to create a shortcut for
 spawning new alacritty instances using Automator on MacOS.
 * extras/vimium_c.json has configurations for a browser plugin called
-VimiumC which gives you vim-like binding in your browser.
+[Vimium C](https://chrome.google.com/webstore/detail/vimium-c-all-by-keyboard/hfjbmagddngcpeloejdejnfgbamkjaeg?hl=en)
+which gives you vim-like binding in your browser.
 
 You may also want to remove any parts of my setup that you don't need.
 For example, if you don't develop with rust or go, you may want to
 remove the lines where they're sourced in the zsh config. You can quickly
 edit it with `.zsh`.
-
-
-# Keyboard Layout
-
-Keyboards are the most important interface between me and my computer.
-So anything I can do to make typing more efficient, ergonomic, and intuitive
-will streamline my workflow and let me think about solving challenging
-problems instead of hunting for the `^` symbol.
-
-This setup tries to achieve this by keeping everything as close to the home
-row as possible. It then adds a couple extra layers so that you can press
-every key in easy places.
-
-screenshots
-
-
-<!--
-# Highlights
-### vim
-### zsh
--->
 
 
 # Tips
@@ -72,3 +52,31 @@ and how to fix it.
 * Because holding backspace registers as holding control, you may find that you
 want to repeat the delete key instead. I recommend pressing `shift+backspace` to
 achieve this.
+
+
+# Keyboard Layout
+
+Keyboards are the most important interface between me and my computer.
+So anything I can do to make typing more efficient, ergonomic, and intuitive
+will streamline my workflow and let me think about solving challenging
+problems instead of hunting for the ^ symbol.
+
+This setup tries to achieve this by keeping everything as close to the home
+row as possible. It then adds a couple extra layers so that you can press
+every key in easy places.
+
+### Base Layer
+![base layer](assets/base-layer.png)
+
+### Layer 1
+![layer1](assets/layer1.png)
+
+### Layer 2
+![layer2](assets/layer2.png)
+
+
+<!--
+# Highlights
+### vim
+### zsh
+-->
