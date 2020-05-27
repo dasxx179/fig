@@ -67,12 +67,16 @@ every key in easy places.
 
 ### Base Layer
 ![base layer](assets/base-layer.png)
+* L_GUI is Command on MacOS
 
-### Layer 1
+### Layer 1 ()
 ![layer1](assets/layer1.png)
+* active with the Command key that's left of the spacebar
 
-### Layer 2
+### Layer 2 
 ![layer2](assets/layer2.png)
+* active with the Command key that's right of the spacebar
+
 
 
 <!--
