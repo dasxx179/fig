@@ -31,8 +31,10 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 #### Dirstack ####################################
-DIRSTACKFILE="$XDG_CACHE_HOME/zsh/dirs"
 DIRSTACKSIZE=20
+DIRSTACKFILE="$XDG_CACHE_HOME/zsh/dirs"
+[ ! -f "$DIRSTACKFILE" ] &&
+    mkdir -p "$(dirname "$DIRSTACKFILE")" && touch "$DIRSTACKFILE"
 
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
     dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
@@ -92,7 +94,9 @@ FontSmoothing=$(defaults read -g CGFontRenderingFontSmoothingDisabled) 2&>/dev/n
 
 #### Plugins #####################################
 [ -f "$ZDOTDIR/fzf.zsh" ] && source "$ZDOTDIR/fzf.zsh"
-[ -f "$ZDOTDIR/alias" ] && source "$ZDOTDIR/alias"
+[ -f "$ZDOTDIR/alias.zsh" ] && source "$ZDOTDIR/alias.zsh"
+[ -f "$ZDOTDIR/rust.zsh" ] && source "$ZDOTDIR/rust.zsh"
+[ -f "$ZDOTDIR/go.zsh" ] && source "$ZDOTDIR/go.zsh"
 # source <(kubectl completion zsh)
 # source <(helm completion zsh)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null

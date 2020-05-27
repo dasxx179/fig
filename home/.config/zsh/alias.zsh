@@ -26,14 +26,14 @@ alias page="$PAGER"
 
 #### Configs #####################################
 alias .zsh="nvim $ZDOTDIR/.zshrc"
-alias .alias="nvim $ZDOTDIR/alias"
+alias .alias="nvim $ZDOTDIR/alias.zsh"
 alias .env="nvim $HOME/.zprofile"
 alias .nvim="nvim $XDG_CONFIG_HOME/nvim/init.vim"
 alias .hist="nvim $MYHIST"
 
 #### Functions ###################################
-up() { fc -e "gsed -i -e \"s|\s| $@ |\"" }
-up2() { fc -e "gsed -i -e \"s|\s| $@ |2\"" }
+up() { fc -e "sed -i \"\" -e \"s| | $* |\"" }
+up2() { fc -e "sed -i \"\" -e \"s| | $* |2\"" }
 
 ip() { ifconfig | grep "inet 10" | awk '{print $2}' }
 
@@ -42,7 +42,7 @@ glog() { git log --oneline --no-decorate "-${1:-5}" ${@:2} }
 bak() { cp -r "$1" "$1.bak" }
 unbak() { mv "$1" $(sed "s/.bak$//" <<< "$1") }
 
-#### Fuzzy #######################################
+#### Fzf #########################################
 gr() {
     repo="$(cd ~/repos && fd -d1 | fzf --reverse)"
     [ "$repo" ] && cd "$HOME/repos/$repo"
