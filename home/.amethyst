@@ -3,6 +3,7 @@
         "tall",
         "fullscreen",
         "floating",
+        "column",
     ],
     "Valid modifiers are": [
         "option",
@@ -28,23 +29,23 @@
     },
     "select-tall-layout": {
         "mod": "mod1",
-        "key": "t"
+        "key": "p"
     },
     "select-fullscreen-layout": {
         "mod": "mod1",
         "key": "m"
     },
     "select-floating-layout": {
-        "mod": "mod1",
-        "key": "f"
+        "mod": "",
+        "key": ""
     },
     "select-wide-layout": {
         "mod": "",
         "key": ""
     },
     "select-column-layout": {
-        "mod": "",
-        "key": ""
+        "mod": "mod1",
+        "key": "g"
     },
     "focus-screen-ccw": {
         "mod": "mod1",
@@ -100,7 +101,7 @@
     },
     "decrease-main": {
         "mod": "mod1",
-        "key": "d"
+        "key": "u"
     },
     "focus-ccw": {
         "mod": "mod1",
@@ -203,7 +204,7 @@
         "key": ""
     },
     "relaunch-amethyst": {
-        "mod": "mod1",
+        "mod": "mod2",
         "key": "z"
     },
     "floating": [

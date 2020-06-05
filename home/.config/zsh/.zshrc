@@ -97,6 +97,7 @@ FontSmoothing=$(defaults read -g CGFontRenderingFontSmoothingDisabled) 2&>/dev/n
 [ -f "$ZDOTDIR/alias.zsh" ] && source "$ZDOTDIR/alias.zsh"
 [ -f "$ZDOTDIR/rust.zsh" ] && source "$ZDOTDIR/rust.zsh"
 [ -f "$ZDOTDIR/go.zsh" ] && source "$ZDOTDIR/go.zsh"
+[ -f "$ZDOTDIR/sayan.zsh" ] && source "$ZDOTDIR/sayan.zsh"
 # source <(kubectl completion zsh)
 # source <(helm completion zsh)
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null

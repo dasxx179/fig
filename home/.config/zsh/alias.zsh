@@ -23,7 +23,9 @@ alias j="jump"
 alias c="jump"
 alias loc="tokei -s code"
 alias page="$PAGER"
-
+alias pip="pip3"
+alias jd="cd ~/Desktop"
+alias jw="cd ~/repos/school"
 #### Configs #####################################
 alias .zsh="$EDITOR $ZDOTDIR/.zshrc"
 alias .alias="$EDITOR $ZDOTDIR/alias.zsh"
