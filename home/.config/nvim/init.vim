@@ -177,9 +177,9 @@ function! ChangeReplace(...)
         let motion = GetMotion()
     endif
     let save_cursor = getcurpos()
-    exe 'norm jmmk"_c'.motion.trim(getreg("+"))
+    exe 'norm "_c'.motion.trim(getreg("+"))
     call setpos(".", save_cursor)
-    norm ='m
+    exe "norm =".motion
     call setpos(".", save_cursor)
     call repeat#set(":call ChangeReplace('".motion."')\<CR>",-1)
     return ""
