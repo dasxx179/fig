@@ -69,11 +69,11 @@ every key in easy places.
 ![base layer](assets/base-layer.png)
 * L_GUI is Command on MacOS
 
-### Layer 1 ()
+### Layer 1
 ![layer1](assets/layer1.png)
 * active with the Command key that's left of the spacebar
 
-### Layer 2 
+### Layer 2
 ![layer2](assets/layer2.png)
 * active with the Command key that's right of the spacebar
 
@@ -81,6 +81,40 @@ every key in easy places.
 
 <!--
 # Highlights
-### vim
-### zsh
+### nvim
+        plugins
+        functions
+        coding maps
+        space maps
+        term, tabs, bufs, splits
+## zsh ✔
+        autocomplete
+        vi mode
+        aliases
+### lazygit ✔
+        basics
+        delta
+        x key
+### lf ✔
+        marks
+        H key
+        hiddenFiles PR
+### amethyst ✔
+        bindings
+        use workspaces
+### karabiner ✔
+        layers
+### vimiumc ✔
+        ? key
+        disabling keys
+### local/bin ✔
+        swaprm
+        clipedit
+        historybackup
+### other ✔
+        docs good
+### projects
+        keys
+        sink
+        change
 -->
