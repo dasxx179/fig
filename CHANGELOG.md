@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.1] - 2020-06-05
+### Fixed
+- Add script to extras for creating alacritty terminfo.
+- mksh function opens file in editor.
+- Remove marks error with ChangeReplace in nvim.
+
 ## [0.6.0] - 2020-06-05
 ### Added
 - Plugin "easy-motion" to nvim.
@@ -73,7 +79,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Created basic script for proof of concept.
 
-[Unreleased]: https://github.com/adamtabrams/fig/compare/0.6.0...HEAD
+[Unreleased]: https://github.com/adamtabrams/fig/compare/0.6.1...HEAD
+[0.6.1]: https://github.com/adamtabrams/fig/compare/0.6.0...0.6.1
 [0.6.0]: https://github.com/adamtabrams/fig/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/adamtabrams/fig/compare/0.4.3...0.5.0
 [0.4.3]: https://github.com/adamtabrams/fig/compare/0.4.2...0.4.3
