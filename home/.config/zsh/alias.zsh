@@ -22,10 +22,9 @@ alias l="lfcd"
 alias j="jump"
 alias c="jump"
 alias loc="tokei -s code"
-alias page="$PAGER"
-alias pip="pip3"
-alias jd="cd ~/Desktop"
-alias jw="cd ~/repos/school"
+alias page="$PAGER --paging=always"
+alias bat="bat --paging=never"
+
 #### Configs #####################################
 alias .zsh="$EDITOR $ZDOTDIR/.zshrc"
 alias .alias="$EDITOR $ZDOTDIR/alias.zsh"
@@ -44,33 +43,75 @@ glog() { git log --oneline --no-decorate "-${1:-5}" ${@:2} }
 bak() { cp -r "$1" "$1.bak" }
 unbak() { mv "$1" $(sed "s/.bak$//" <<< "$1") }
 
+mksh() { echo "#!/bin/sh" >> "$1" && chmod +x "$1" }
+
 #### Fzf #########################################
-gr() {
-    repo="$(cd ~/repos && fd -d1 | fzf --reverse)"
-    [ "$repo" ] && cd "$HOME/repos/$repo"
-}
-or() {
-    prev_dir=$(pwd) && gr && hub browse; cd "$prev_dir"
-}
-lr() {
-    for repo in $(cd ~/repos && fd -d1 | fzf --reverse --multi); do
-        lazygit -p "$HOME/repos/$repo"
-    done
-}
-gw() {
-    wiki=$(cd ~/.local/vimwiki && fd | fzf --reverse)
-    [ "$wiki" ] && $EDITOR "$HOME/.local/vimwiki/$wiki"
-}
+# go to one of the lastest dirs
 gl() {
     goto=$(cat "$DIRSTACKFILE" | fzf --reverse)
     [ "$goto" ] && cd "$goto"
 }
 
+# go to a repo
+gr() {
+    repo="$(cd ~/repos && fd -d1 | fzf --reverse)"
+    [ "$repo" ] && cd "$HOME/repos/$repo"
+}
+
+# go to a repo (recursive)
+grr() {
+    repo="$(cd ~/repos && fd -d3 -t d -I -H "^.git$" |
+        rev | cut -c 6- | rev | fzf --reverse)"
+    [ "$repo" ] && cd "$HOME/repos/$repo"
+}
+
+# open a repo in the browser
+or() {
+    prev_dir=$(pwd) && gr && hub browse; cd "$prev_dir"
+}
+
+# use lazygit on one or more repos
+lr() {
+    for repo in $(cd ~/repos && fd -d1 | fzf --reverse --multi); do
+        lazygit -p "$HOME/repos/$repo"
+    done
+}
+
+# go to a dir in temp
+gt() {
+    dir="$(cd ~/temp && fd -t d | fzf --reverse)"
+    [ "$dir" ] && cd "$HOME/temp/$dir"
+}
+
+# edit a file in temp
+et() {
+    file="$(cd ~/temp && fd -t f | fzf --reverse)"
+    [ "$file" ] && "$EDITOR" "$HOME/temp/$file"
+}
+
+# go to a dir in save
+gs() {
+    dir="$(cd ~/save && fd -t d | fzf --reverse)"
+    [ "$dir" ] && cd "$HOME/save/$dir"
+}
+
+# edit a file in temp
+es() {
+    file="$(cd ~/save && fd -t f | fzf --reverse)"
+    [ "$file" ] && "$EDITOR" "$HOME/save/$file"
+}
+
+# edit a vimwiki page
+ew() {
+    wiki=$(cd ~/.local/vimwiki && fd | fzf --reverse)
+    [ "$wiki" ] && "$EDITOR" "$HOME/.local/vimwiki/$wiki"
+}
+
 #### Save lf Dir #################################
 lfcd () {
     tmp="$(mktemp)"
-    ~/repos/lf/lf-bufio -last-dir-path="$tmp" "$@"
-    # lf -last-dir-path="$tmp" "$@"
+    # ~/repos/lf/lf-hiddenfiles -last-dir-path="$tmp" "$@"
+    lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
