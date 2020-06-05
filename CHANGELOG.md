@@ -6,6 +6,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2020-06-05
+### Added
+- Plugin "easy-motion" to nvim.
+
+### Fixed
+- Improve bat and lf settings.
+- Improve functions and bindings for nvim.
+- Improve bindings for amethyst.
+
+### Changed
+- Fix README typo.
+- Add a changelog to the project.
+
 ## [0.5.0] - 2020-05-27
 ### Added
 - Created way more fzf functions in zsh.
@@ -60,7 +73,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Created basic script for proof of concept.
 
-[Unreleased]: https://github.com/adamtabrams/fig/compare/0.5.0...HEAD
+[Unreleased]: https://github.com/adamtabrams/fig/compare/0.6.0...HEAD
+[0.6.0]: https://github.com/adamtabrams/fig/compare/0.5.0...0.6.0
 [0.5.0]: https://github.com/adamtabrams/fig/compare/0.4.3...0.5.0
 [0.4.3]: https://github.com/adamtabrams/fig/compare/0.4.2...0.4.3
 [0.4.2]: https://github.com/adamtabrams/fig/compare/0.4.1...0.4.2

@@ -23,5 +23,3 @@ map L $lazygit
 map D :delete
 
 # custom ignore
-set ignorer ~/.config/lf/ignore.sh
-set nodirfirst

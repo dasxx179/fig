@@ -22,7 +22,8 @@ alias l="lfcd"
 alias j="jump"
 alias c="jump"
 alias loc="tokei -s code"
-alias page="$PAGER"
+alias page="$PAGER --paging=always"
+alias bat="bat --paging=never"
 
 #### Configs #####################################
 alias .zsh="$EDITOR $ZDOTDIR/.zshrc"
@@ -42,6 +43,8 @@ glog() { git log --oneline --no-decorate "-${1:-5}" ${@:2} }
 bak() { cp -r "$1" "$1.bak" }
 unbak() { mv "$1" $(sed "s/.bak$//" <<< "$1") }
 
+mksh() { echo "#!/bin/sh" >> "$1" && chmod +x "$1" }
+
 #### Fzf #########################################
 # go to one of the lastest dirs
 gl() {
@@ -52,6 +55,13 @@ gl() {
 # go to a repo
 gr() {
     repo="$(cd ~/repos && fd -d1 | fzf --reverse)"
+    [ "$repo" ] && cd "$HOME/repos/$repo"
+}
+
+# go to a repo (recursive)
+grr() {
+    repo="$(cd ~/repos && fd -d3 -t d -I -H "^.git$" |
+        rev | cut -c 6- | rev | fzf --reverse)"
     [ "$repo" ] && cd "$HOME/repos/$repo"
 }
 
@@ -100,8 +110,8 @@ ew() {
 #### Save lf Dir #################################
 lfcd () {
     tmp="$(mktemp)"
-    ~/repos/lf/lf-bufio -last-dir-path="$tmp" "$@"
-    # lf -last-dir-path="$tmp" "$@"
+    # ~/repos/lf/lf-hiddenfiles -last-dir-path="$tmp" "$@"
+    lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
