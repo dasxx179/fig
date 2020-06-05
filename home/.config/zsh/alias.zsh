@@ -43,7 +43,7 @@ glog() { git log --oneline --no-decorate "-${1:-5}" ${@:2} }
 bak() { cp -r "$1" "$1.bak" }
 unbak() { mv "$1" $(sed "s/.bak$//" <<< "$1") }
 
-mksh() { echo "#!/bin/sh" >> "$1" && chmod +x "$1" }
+mksh() { echo "#!/bin/sh" >> "$1" && chmod +x "$1" && "$EDITOR" "$1" }
 
 #### Fzf #########################################
 # go to one of the lastest dirs
