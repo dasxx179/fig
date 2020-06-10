@@ -60,7 +60,7 @@ gr() {
 
 # go to a repo (recursive)
 grr() {
-    repo="$(cd ~/repos && fd -d3 -t d -I -H "^.git$" |
+    repo="$(cd ~/repos && fd -d4 -t d -I -H "^.git$" |
         rev | cut -c 6- | rev | fzf --reverse)"
     [ "$repo" ] && cd "$HOME/repos/$repo"
 }
